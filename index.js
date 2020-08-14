@@ -61,8 +61,13 @@ client.on('message', async msg => {
 	setTimeout(() => timestamps.delete(msg.author.id), cooldownAmount);
 
     // If a command is finally found, run the command
-    if(command) {
-        command.run(client, msg, args);
+    try {
+        if(command) {
+            console.log('Command called! \n' + 'Caller: ' + client + ' Command: ' + command);
+            command.run(client, msg, args);
+        }
+    } catch(error) {
+        console.log(error);
     }
 });
 
