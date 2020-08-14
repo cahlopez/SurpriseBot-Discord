@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const TeemoJS = require('teemojs');
 const request = require('request');
 
-const api = TeemoJS('process.env.RIOT_TOKEN');
+const api = TeemoJS(process.env.RIOT_TOKEN);
 
 const champs = {};
 const icons = {};
