@@ -1,9 +1,11 @@
-const { Client, Collection, Guild } = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const client = new Client();
 
 // Collections
 client.commands = new Collection();
 client.aliases = new Collection();
+const cooldowns = new Collection();
+
 
 const { prefix, bot_info } = require('./config.json');
 
@@ -38,10 +40,30 @@ client.on('message', async msg => {
     // If none is found, try to find it by alias
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
+    if (!cooldowns.has(command.name)) {
+		cooldowns.set(command.name, new Collection());
+	}
+
+	const now = Date.now();
+	const timestamps = cooldowns.get(command.name);
+	const cooldownAmount = (command.cooldown || 3) * 1000;
+
+	if (timestamps.has(msg.author.id)) {
+		const expirationTime = timestamps.get(msg.author.id) + cooldownAmount;
+
+		if (now < expirationTime) {
+			const timeLeft = (expirationTime - now) / 1000;
+			return msg.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+		}
+	}
+
+	timestamps.set(msg.author.id, now);
+	setTimeout(() => timestamps.delete(msg.author.id), cooldownAmount);
+
     // If a command is finally found, run the command
     if(command) {
         command.run(client, msg, args);
     }
 });
 
-client.login('NzQxNDkyNTA0NjgzMjE2OTM2.Xy4WtQ.GZMWnQA6iLQoOJHUHv1MekQJGAA');
+client.login(process.env.BOT_TOKEN);
