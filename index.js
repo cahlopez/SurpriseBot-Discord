@@ -63,7 +63,7 @@ client.on('message', async msg => {
     // If a command is finally found, run the command
     try {
         if(command) {
-            console.log('Command called! \n' + 'Caller: ' + msg.author.name + ' Command: ' + command.name);
+            console.log('Command called! ' + 'Caller: ' + msg.author.username + ' Command: ' + command.name);
             command.run(client, msg, args);
         }
     } catch(error) {
