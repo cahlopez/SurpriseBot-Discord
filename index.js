@@ -6,7 +6,6 @@ client.commands = new Collection();
 client.aliases = new Collection();
 const cooldowns = new Collection();
 
-
 const { prefix, bot_info } = require('./config.json');
 
 // Run the command loader
@@ -42,11 +41,11 @@ client.on('message', async msg => {
 
     if (!cooldowns.has(command.name)) {
 		cooldowns.set(command.name, new Collection());
-	}
+    }
 
 	const now = Date.now();
 	const timestamps = cooldowns.get(command.name);
-	const cooldownAmount = (command.cooldown || 3) * 1000;
+	const cooldownAmount = (command.cooldown || 1) * 1000;
 
 	if (timestamps.has(msg.author.id)) {
 		const expirationTime = timestamps.get(msg.author.id) + cooldownAmount;
