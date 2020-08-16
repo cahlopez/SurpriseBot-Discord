@@ -172,7 +172,7 @@ module.exports = {
 
                 if(gameData != null) {
                     profileEmbed.addFields(
-                        { name: 'Current Champion Stats', value: '**Champion:** ' + champs[champId] + ' ' + '**Sample Size:** ' + gameIds.length + ' Games' + ' ' + '**Win Rate:** ' + (Math.round(1000 * ((wins / gameIds.length) * 100)) / 1000) + '%', inline: true },
+                        { name: 'Current Champion Stats', value: '**Champion:** ' + champs[champId] + ' ' + '**Sample Size:** ' + gameIds.length + ' Games' + ' ' + '**Win Rate:** ' + (Math.round(100 * ((wins / gameIds.length) * 100)) / 100) + '%', inline: true },
                     );
                 }
 
