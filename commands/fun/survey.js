@@ -4,5 +4,7 @@ module.exports = {
     description: 'Returns latency and API ping',
     run: async (client, message, args) => {
         message.delete();
+
+        message.channel.send(args[0]);
     },
 };
