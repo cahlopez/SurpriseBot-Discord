@@ -27,7 +27,7 @@ module.exports = {
         msg.delete();
 
         // Get the messages and delete them
-        const fetched = await msg.channel.messages.fetch({limit: deleteCount});
+        const fetched = await msg.channel.messages.fetch({ limit: deleteCount });
         msg.channel.bulkDelete(fetched)
             .catch(error => msg.reply(`Couldn't delete messages because of: ${error}`));
 
