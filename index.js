@@ -29,9 +29,11 @@ client.on('ready', () => {
 client.on('message', async msg => {
     if(!msg.content.startsWith(prefix)) return;
 
-    const argString = msg.content.match(/'([^']+)'/)[1];
-    console.log(argString);
+    const argString = msg.content.match(/'([^']+)'/);
     const args = msg.content.slice(prefix.length).split(' ');
+
+    args.unshift(argString);
+
     const cmd = args.shift().toLowerCase();
 
     if (cmd.length === 0) return;
