@@ -35,6 +35,7 @@ client.on('message', async msg => {
 
     if(argString[1] != null) {
         msgContent.replace(argString[1], '');
+        console.log(msgContent);
         args = msgContent.slice(prefix.length).split(' ');
         args.unshift(argString[1]);
         console.log(args);
