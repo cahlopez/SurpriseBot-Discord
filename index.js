@@ -29,12 +29,17 @@ client.on('ready', () => {
 client.on('message', async msg => {
     if(!msg.content.startsWith(prefix)) return;
 
+    const msgContent = msg.content;
     const argString = msg.content.match(/'([^']+)'/);
-    const args = msg.content.slice(prefix.length).split(' ');
+    let args;
 
     if(argString[1] != null) {
-        args.replace(argString[1], '');
+        msgContent.replace(argString[1], '');
+        args = msg.content.slice(prefix.length).split(' ');
         args.unshift(argString[1]);
+        console.log(args);
+    } else {
+        args = msg.content.slice(prefix.length).split(' ');
         console.log(args);
     }
 
