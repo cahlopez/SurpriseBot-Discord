@@ -33,6 +33,7 @@ client.on('message', async msg => {
     const args = msg.content.slice(prefix.length).split(' ');
 
     if(argString[1] != null) {
+        args.replace(argString[1], '');
         args.unshift(argString[1]);
         console.log(args);
     }
