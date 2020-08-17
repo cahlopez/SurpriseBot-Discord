@@ -35,11 +35,11 @@ client.on('message', async msg => {
 
     if(argString[1] != null) {
         msgContent.replace(argString[1], '');
-        args = msg.content.slice(prefix.length).split(' ');
+        args = msgContent.slice(prefix.length).split(' ');
         args.unshift(argString[1]);
         console.log(args);
     } else {
-        args = msg.content.slice(prefix.length).split(' ');
+        args = msgContent.slice(prefix.length).split(' ');
         console.log(args);
     }
 
