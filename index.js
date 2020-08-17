@@ -32,7 +32,7 @@ client.on('message', async msg => {
     const argString = msg.content.match(/'([^']+)'/);
     const args = msg.content.slice(prefix.length).split(' ');
 
-    console.log(argString);
+    console.log(argString[1]);
     // args.unshift(argString);
 
     const cmd = args.shift().toLowerCase();
