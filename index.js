@@ -75,7 +75,14 @@ client.on('message', async msg => {
                 const mutedUser = command.run(client, msg, args);
 
                 mutedUser.then(function(result) {
-                    mutedUsers.push(result);
+                    for(const user in mutedUsers) {
+                        if(msg.author.username == mutedUsers[user]) {
+                            mutedUsers.splice(user, 1);
+                            break;
+                        } else {
+                            mutedUsers.push(result);
+                        }
+                    }
                 });
             } else {
                 command.run(client, msg, args);
