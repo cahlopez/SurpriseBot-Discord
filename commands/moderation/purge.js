@@ -1,6 +1,7 @@
 module.exports = {
     name: 'purge',
     description: 'Purges messages in chat',
+    return: false,
     run: async (client, msg, args) => {
         // Check if the user has permissions to use the command
         if(!msg.member.roles.cache.some(r=>['Operator', 'Administrator'].includes(r.name))) {

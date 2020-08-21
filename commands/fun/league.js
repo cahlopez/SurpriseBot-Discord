@@ -104,6 +104,7 @@ module.exports = {
     name: 'league',
     cooldown: 3,
     description: 'Get league data',
+    return: false,
     run: async (client, message, args) => {
         if(args[0] != undefined) {
                 const msg = await message.channel.send('Fetching LoL Data...');

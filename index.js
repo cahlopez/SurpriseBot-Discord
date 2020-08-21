@@ -5,6 +5,7 @@ const client = new Client();
 client.commands = new Collection();
 client.aliases = new Collection();
 const cooldowns = new Collection();
+const mutedUsers = new Array();
 
 const { prefix, bot_info } = require('./config.json');
 
@@ -27,6 +28,13 @@ client.on('ready', () => {
 });
 
 client.on('message', async msg => {
+    for(const user in mutedUsers) {
+        if(msg.author.username == mutedUsers[user]) {
+            msg.delete();
+            break;
+        }
+    }
+
     if(!msg.content.startsWith(prefix)) return;
 
     const args = msg.content.slice(prefix.length).split(' ');
@@ -63,11 +71,15 @@ client.on('message', async msg => {
     try {
         if(command) {
             console.log('Command called! ' + 'Caller: ' + msg.author.username + ' Command: ' + command.name);
-            const mutedUser = command.run(client, msg, args);
+            if(command.return) {
+                const mutedUser = command.run(client, msg, args);
 
-            mutedUser.then(function(result) {
-                console.log(result);
-            });
+                mutedUser.then(function(result) {
+                    mutedUsers.push(result);
+                });
+            } else {
+                command.run(client, msg, args);
+            }
         }
     } catch(error) {
         console.log(error);
