@@ -65,7 +65,9 @@ client.on('message', async msg => {
             console.log('Command called! ' + 'Caller: ' + msg.author.username + ' Command: ' + command.name);
             const mutedUser = command.run(client, msg, args);
 
-            console.log(mutedUser);
+            mutedUser.then(function(result) {
+                console.log(result);
+            });
         }
     } catch(error) {
         console.log(error);
