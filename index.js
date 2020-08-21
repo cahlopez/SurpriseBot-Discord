@@ -63,7 +63,7 @@ client.on('message', async msg => {
     try {
         if(command) {
             console.log('Command called! ' + 'Caller: ' + msg.author.username + ' Command: ' + command.name);
-            command.run(client, msg, args);
+            console.log(command.run(client, msg, args));
         }
     } catch(error) {
         console.log(error);
