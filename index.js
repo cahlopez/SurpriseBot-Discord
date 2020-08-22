@@ -73,15 +73,19 @@ client.on('message', async msg => {
             console.log('Command called! ' + 'Caller: ' + msg.author.username + ' Command: ' + command.name);
             if(command.return) {
                 const mutedUser = command.run(client, msg, args);
+                let foundUser = false;
 
                 mutedUser.then(function(result) {
                     for(const user in mutedUsers) {
                         if(msg.author.username == mutedUsers[user]) {
                             mutedUsers.splice(user, 1);
+                            foundUser = true;
                             break;
-                        } else {
-                            mutedUsers.push(result);
                         }
+                    }
+
+                    if(!foundUser) {
+                        mutedUsers.push(result);
                     }
                 });
             } else {
