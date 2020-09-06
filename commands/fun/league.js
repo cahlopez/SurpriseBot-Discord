@@ -108,7 +108,7 @@ module.exports = {
     run: async (client, message, args) => {
         if(args[0] != undefined) {
             for(const ply in args) {
-                const msg = await message.channel.send('Fetching LoL Data...');
+                let msg = await message.channel.send('Fetching LoL Data...');
                 try {
 
                     const sumData = await getSummonerData(args[ply]);
