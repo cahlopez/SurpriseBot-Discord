@@ -108,7 +108,7 @@ module.exports = {
     run: async (client, message, args) => {
         if(args[0] != undefined) {
             for(const ply in args) {
-                let msg = await message.channel.send('Fetching LoL Data...');
+                const msg = await message.channel.send('Fetching LoL Data...');
                 try {
 
                     const sumData = await getSummonerData(args[ply]);
@@ -179,7 +179,7 @@ module.exports = {
                     }
 
                     message.delete({ timeout: 100 });
-                    msg.delete({ timeout: 100 });
+                    msg.delete({ timeout: 200 });
                     message.channel.send(profileEmbed);
                 } catch(error) {
                     message.delete({ timeout: 100 });
