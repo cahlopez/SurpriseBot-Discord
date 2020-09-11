@@ -13,7 +13,7 @@ module.exports = {
         }
 
         // Get the delete count, as an actual number.
-        const deleteCount = parseInt(args[0], 10) + 1;
+        const deleteCount = parseInt(args[0], 10);
 
         // Set a min and max for deleteCount
         if(!deleteCount || deleteCount < 2 || deleteCount > 100) {
