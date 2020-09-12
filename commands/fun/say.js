@@ -8,6 +8,7 @@ module.exports = {
             message.channel.send(msg);
             message.delete({ timeout: 100 });
         } else {
+            message.channel.send('<@' + message.author.id + '>' + ' is really dumb!');
             message.delete({ timeout: 100 });
         }
     },
