@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'roll',
-    description: 'Rolls a random number from 0-100',
+    name: 'say',
+    description: 'Repeats what the caller says',
     run: async (client, message, args) => {
         const msg = args.join(' ');
 
