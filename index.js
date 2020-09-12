@@ -5,7 +5,6 @@ const client = new Client();
 client.commands = new Collection();
 client.aliases = new Collection();
 const cooldowns = new Collection();
-const mutedUsers = new Array();
 
 const { prefix, bot_info } = require('./config.json');
 
@@ -18,23 +17,16 @@ client.on('ready', () => {
     console.log(bot_info.name + ' has started with version: ' + bot_info.version + ' and is now ready!');
     // client.users.resolve('331888945342185473').send('Happy Birthday Alex, you can redeem the following codes on League: RA-LF68BP6HQW25D7L5 | RA-BXG9KU9EZJFC354T');
 
-    client.user.setPresence({
-        status: 'online',
-        activity: {
-            name: 'BattLive develop me',
-            type: 'WATCHING',
-        },
-    });
+    // client.user.setPresence({
+    //     status: 'online',
+    //     activity: {
+    //         name: 'BattLive develop me',
+    //         type: 'WATCHING',
+    //     },
+    // });
 });
 
 client.on('message', async msg => {
-    for(const user in mutedUsers) {
-        if(msg.author.username == mutedUsers[user]) {
-            msg.delete();
-            break;
-        }
-    }
-
     if(!msg.content.startsWith(prefix)) return;
 
     const args = msg.content.slice(prefix.length).split(' ');
@@ -71,26 +63,7 @@ client.on('message', async msg => {
     try {
         if(command) {
             console.log('Command called! ' + 'Caller: ' + msg.author.username + ' Command: ' + command.name);
-            if(command.return) {
-                const mutedUser = command.run(client, msg, args);
-                let foundUser = false;
-
-                mutedUser.then(function(result) {
-                    for(const user in mutedUsers) {
-                        if(msg.author.username == mutedUsers[user]) {
-                            mutedUsers.splice(user, 1);
-                            foundUser = true;
-                            break;
-                        }
-                    }
-
-                    if(!foundUser) {
-                        mutedUsers.push(result);
-                    }
-                });
-            } else {
-                command.run(client, msg, args);
-            }
+            command.run(client, msg, args);
         }
     } catch(error) {
         console.log(error);

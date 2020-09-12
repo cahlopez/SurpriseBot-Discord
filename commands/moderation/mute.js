@@ -1,7 +1,6 @@
 module.exports = {
     name: 'mute',
     description: 'Mute people in chat',
-    return: true,
     run: async (client, msg, args) => {
         // Check if the user has permissions to use the command
         if(!msg.member.roles.cache.some(r=>['Administrator'].includes(r.name))) {

@@ -104,7 +104,6 @@ module.exports = {
     name: 'league',
     cooldown: 3,
     description: 'Get league data',
-    return: false,
     run: async (client, message, args) => {
         if(args[0] != undefined) {
             for(const ply in args) {
