@@ -1,8 +1,10 @@
 module.exports = {
     name: 'roll',
     description: 'Rolls a random number from 0-100',
-    run: async (client, message) => {
-        message.channel.send(message.author.username + ' rolled: ' + Math.floor(Math.random() * 101));
+    run: async (client, message, args) => {
+        const msg = args.join(' ');
+
+        message.channel.send(msg);
         message.delete({ timeout: 100 });
     },
 };
