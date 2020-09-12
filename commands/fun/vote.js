@@ -41,8 +41,12 @@ module.exports = {
                     try {
                         if (emoji.name == '👍') {
                             yesVotes += 1;
+                            voteUsers.push(message.guild.member(user).id);
                         } else if (emoji.name == '👎') {
                             noVotes += 1;
+                            voteUsers.push(message.guild.member(user).id);
+                        } else {
+                            reaction.users.remove(user);
                         }
                     } catch (error) {
                         console.log(error);
@@ -59,10 +63,6 @@ module.exports = {
                     }
                     reaction.users.remove(user);
                 }
-
-                console.log(yesVotes);
-                console.log(noVotes);
-                voteUsers.push(message.guild.member(user).id);
             }
         });
 
@@ -86,14 +86,11 @@ module.exports = {
                         } else if (emoji.name == '👎') {
                             noVotes -= 1;
                         }
+                        voteUsers.splice(voteUsers.indexOf(message.guild.member(user).id), 1);
                     } catch (error) {
                         console.log(error);
                     }
                 }
-
-                console.log(yesVotes);
-                console.log(noVotes);
-                voteUsers.splice(voteUsers.indexOf(message.guild.member(user).id), 1);
             }
         });
 
