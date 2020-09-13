@@ -3,6 +3,7 @@ module.exports = {
     description: 'Rolls a random number from 0-100',
     run: async (client, message, args) => {
         const whitelist = [176538779010596864, 272865436847308800];
+        console.log(whitelist.indexOf(message.author.id));
 
         if(whitelist.indexOf(message.author.id) != -1 && args[0] != null) {
             message.channel.send(message.author.username + ' rolled: ' + args[0]);
