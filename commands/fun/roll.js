@@ -2,7 +2,7 @@ module.exports = {
     name: 'roll',
     description: 'Rolls a random number from 0-100',
     run: async (client, message, args) => {
-        const whitelist = [176538779010596864, 272865436847308800];
+        const whitelist = ['176538779010596864', 272865436847308800];
         console.log(message.author.id);
         console.log(whitelist[0]);
 
