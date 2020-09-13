@@ -8,7 +8,7 @@ module.exports = {
         args.splice(0, 1);
         const userMsg = args.join(' ');
 
-        const msg = await message.channel.send('You have ' + timer + ' seconds to' + userMsg);
+        const msg = await message.channel.send('You have ' + timer + ' seconds to ' + userMsg);
         message.delete({ timeout: 100 });
 
         if(whitelist.indexOf(message.author.id) != -1) {
@@ -18,7 +18,7 @@ module.exports = {
 };
 
 function countdownFunc(timer, msg, userMsg) {
-    if(timer > 0) {
+    if(timer > -1) {
         msg.edit('You have ' + timer + ' seconds to' + userMsg);
 
         setTimeout(function() {
