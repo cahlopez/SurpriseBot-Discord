@@ -17,9 +17,9 @@ module.exports = {
     },
 };
 
-function countdownFunc(timer, msg, userMsg) {
+async function countdownFunc(timer, msg, userMsg) {
     if(timer > -1) {
-        msg.edit('You have ' + timer + ' seconds to' + userMsg);
+        await msg.edit('You have ' + timer + ' seconds to ' + userMsg);
 
         setTimeout(function() {
             countdownFunc(timer - 1, msg, userMsg);
