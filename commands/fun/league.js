@@ -9,7 +9,7 @@ const icons = {};
 
 // Get champion ids and names
 request({
-    url: 'http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/championFull.json',
+    url: 'http://ddragon.leagueoflegends.com/cdn/10.23.1/data/en_US/championFull.json',
     json: true,
 }, function(error, response, body) {
     for(const key in body.keys) {
@@ -20,7 +20,7 @@ request({
 
 // Get client summoner icons
 request({
-    url: 'http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/profileicon.json',
+    url: 'http://ddragon.leagueoflegends.com/cdn/10.23.1/data/en_US/profileicon.json',
     json: true,
 }, function(error, response, body) {
     for(const key in body.data) {
@@ -148,7 +148,7 @@ module.exports = {
 
                     const profileEmbed = new Discord.MessageEmbed()
                         .setTitle('League of Legends Stats')
-                        .setThumbnail('http://ddragon.leagueoflegends.com/cdn/10.16.1/img/profileicon/' + icons[sumData.profileIconId])
+                        .setThumbnail('http://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/' + icons[sumData.profileIconId])
                         .addField('Player:', `[${sumData.name}](https://na.op.gg/summoner/userName=${args[ply]})`, true)
                         .setTimestamp()
                         .setFooter('Called by ' + message.author.username, message.author.avatarURL());
