@@ -15,7 +15,7 @@ const { prefix, bot_info } = require('./config.json');
 
 client.on('ready', () => {
     console.log(bot_info.name + ' has started with version: ' + bot_info.version + ' and is now ready!');
-    // client.users.resolve('331888945342185473').send('Happy Birthday Alex, you can redeem the following codes on League: RA-LF68BP6HQW25D7L5 | RA-BXG9KU9EZJFC354T');
+    client.users.resolve('237375045402361856').send("You're an idiot");
 
     // client.user.setPresence({
     //     status: 'online',
