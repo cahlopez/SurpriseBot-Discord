@@ -15,7 +15,7 @@ const { prefix, bot_info } = require('./config.json');
 
 client.on('ready', () => {
     console.log(bot_info.name + ' has started with version: ' + bot_info.version + ' and is now ready!');
-    client.users.resolve('237375045402361856').send("You're an idiot");
+    // client.users.resolve('237375045402361856').send("You're an idiot");
 
     // client.user.setPresence({
     //     status: 'online',
