@@ -1,4 +1,5 @@
 import { Client } from "discord.js";
+require('dotenv').config();
 
 import interactionCreate from "./listeners/interactionCreate";
 import ready from "./listeners/ready";
