@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (client) => {
-    client.on("message", async (message) => {
+    client.on("messageCreate", async (message) => {
         console.log("NEW MESSAGE");
         if (message.author.id == "937913319996682291") {
             console.log("CORRECT USER");

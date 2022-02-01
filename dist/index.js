@@ -8,7 +8,8 @@ const interactionCreate_1 = __importDefault(require("./listeners/interactionCrea
 const ready_1 = __importDefault(require("./listeners/ready"));
 const autoReaction_1 = __importDefault(require("./listeners/autoReaction"));
 const client = new discord_js_1.Client({
-    intents: []
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+    intents: [discord_js_1.Intents.FLAGS.GUILDS, discord_js_1.Intents.FLAGS.GUILD_MESSAGES]
 });
 (0, ready_1.default)(client);
 (0, interactionCreate_1.default)(client);
