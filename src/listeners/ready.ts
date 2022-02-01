@@ -3,7 +3,7 @@ import { Commands } from "../commands";
 
 import schedule from 'node-schedule';
 
-import { prefix, bot_info } from "../../config.json"
+import { bot_info } from "../config.json"
 
 export default (client: Client): void => {
     client.on("ready", async () => {

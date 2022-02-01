@@ -1,2 +1,0 @@
-# SurpriseBot-Discord
- Discord bot
