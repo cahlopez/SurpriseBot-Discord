@@ -10,4 +10,4 @@ const client = new Client({
 ready(client);
 interactionCreate(client);
 
-client.login("NzQxNDkyNTA0NjgzMjE2OTM2.Xy4WtQ.6mba4wLGRbXN2FM8E-l-jewu_P0");
+client.login(process.env.BOT_TOKEN);
