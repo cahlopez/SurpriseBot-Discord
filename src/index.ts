@@ -5,7 +5,8 @@ import ready from "./listeners/ready";
 import autoReaction from "./listeners/autoReaction";
 
 const client = new Client({
-    intents: []
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+    intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS']
 });
 
 ready(client);
