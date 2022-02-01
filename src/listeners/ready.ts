@@ -22,9 +22,9 @@ export default (client: Client): void => {
             .setTimestamp()
 
         const job = schedule.scheduleJob('0 0 * * *', async function() {
-            const channel = await client.guilds.cache.get('596817382392070146')?.channels.fetch('753667809539522713')
+            const channel = await client.guilds.cache.get('596817382392070146')!.channels.fetch('753667809539522713')
 
-            if(channel?.isText()) {
+            if(channel!.isText()) {
                 channel.send({embeds: [wordleEmbed]});
             }
         });

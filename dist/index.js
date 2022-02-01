@@ -6,9 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
 const interactionCreate_1 = __importDefault(require("./listeners/interactionCreate"));
 const ready_1 = __importDefault(require("./listeners/ready"));
+const autoReaction_1 = __importDefault(require("./listeners/autoReaction"));
 const client = new discord_js_1.Client({
     intents: []
 });
 (0, ready_1.default)(client);
 (0, interactionCreate_1.default)(client);
+(0, autoReaction_1.default)(client);
 client.login(process.env.BOT_TOKEN);
