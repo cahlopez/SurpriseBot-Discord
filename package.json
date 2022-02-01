@@ -4,7 +4,8 @@
   "description": "Discord bot",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "build": "tsc",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
