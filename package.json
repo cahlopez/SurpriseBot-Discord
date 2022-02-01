@@ -2,9 +2,9 @@
   "name": "surprisebot",
   "version": "2.0.0",
   "description": "Discord Bot",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "node ."
   },
   "author": "Cameron Lopez",
   "license": "ISC",
