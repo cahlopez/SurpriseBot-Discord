@@ -20,9 +20,9 @@ exports.default = (client) => {
             .setDescription('There is a new wordle!')
             .setThumbnail('https://i.imgur.com/5QI3JV2.png')
             .setTimestamp();
-        const job = node_schedule_1.default.scheduleJob('0 0 * * *', async function () {
-            const channel = await client.guilds.cache.get('596817382392070146').channels.fetch('753667809539522713');
-            if (channel.isText()) {
+        const job = node_schedule_1.default.scheduleJob({ hour: 0, minute: 0, tz: 'America/Los_Angeles' }, async function () {
+            const channel = await client.guilds.cache.get('596817382392070146')?.channels.fetch('753667809539522713');
+            if (channel?.isText()) {
                 channel.send({ embeds: [wordleEmbed] });
             }
         });
