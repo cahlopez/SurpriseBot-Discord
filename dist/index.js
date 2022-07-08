@@ -14,4 +14,4 @@ const client = new discord_js_1.Client({
 (0, ready_1.default)(client);
 (0, interactionCreate_1.default)(client);
 (0, autoReaction_1.default)(client);
-client.login(process.env.BOT_TOKEN);
+client.login("NzQxNDkyNTA0NjgzMjE2OTM2.Xy4WtQ.72-gWflwD7Dx196AApZaozDfVW4");

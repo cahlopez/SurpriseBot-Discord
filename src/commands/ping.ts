@@ -6,7 +6,7 @@ export const Ping: Command = {
     description: "Returns 'Pong!'",
     type: "CHAT_INPUT",
     run: async (client: Client, interaction: BaseCommandInteraction) => {
-        const content = "Pong!";
+        const content: string = "Pong!";
 
         await interaction.reply({
             content,

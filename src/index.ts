@@ -13,4 +13,4 @@ ready(client);
 interactionCreate(client);
 autoReaction(client);
 
-client.login(process.env.BOT_TOKEN);
+client.login("NzQxNDkyNTA0NjgzMjE2OTM2.Xy4WtQ.72-gWflwD7Dx196AApZaozDfVW4");
