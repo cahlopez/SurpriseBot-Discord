@@ -1,1 +1,1 @@
-worker: npm start
+worker: deno run -A mod.ts
