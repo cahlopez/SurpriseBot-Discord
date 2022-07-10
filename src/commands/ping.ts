@@ -1,16 +1,22 @@
-import { BaseCommandInteraction, Client } from "discord.js";
-import { Command } from "../command";
+import { ApplicationCommandTypes, InteractionResponseTypes } from "../../deps.ts";
+import { snowflakeToTimestamp } from "../utils/helpers.ts";
+import { createCommand } from "./mod.ts";
 
-export const Ping: Command = {
-    name: "ping",
-    description: "Returns 'Pong!'",
-    type: "CHAT_INPUT",
-    run: async (client: Client, interaction: BaseCommandInteraction) => {
-        const content: string = "Pong!";
-
-        await interaction.reply({
-            content,
-            ephemeral: true
-        });
-    }
-}; 
+createCommand({
+  name: "ping",
+  description: "Ping the Bot!",
+  type: ApplicationCommandTypes.ChatInput,
+  execute: async (Bot, interaction) => {
+    const ping = Date.now() - snowflakeToTimestamp(interaction.id);
+    await Bot.helpers.sendInteractionResponse(
+      interaction.id,
+      interaction.token,
+      {
+        type: InteractionResponseTypes.ChannelMessageWithSource,
+        data: {
+          content: `🏓 Pong! ${ping}ms`,
+        },
+      },
+    );
+  },
+});
