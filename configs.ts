@@ -8,6 +8,7 @@ const lavalinkHost = Deno.env.get("LLHOST") || env.LLHOST
 const lavalinkPort = Deno.env.get("LLPORT") || env.LLPPORT
 const lavalinkPassword = Deno.env.get("LLPASSWORD") || env.LLPASSWORD
 const lavalinkSecure = Deno.env.get("LLSECURE") || env.LLSECURE
+const lavalinkResume = Deno.env.get("LLRESUME") || env.LLRESUME
 
 export interface Config {
   token: string;
@@ -16,6 +17,7 @@ export interface Config {
   lavalinkPort: number;
   lavalinkPassword: string;
   lavalinkSecure: boolean;
+  lavalinkResume: string
 }
 
 export const configs = {
@@ -30,4 +32,5 @@ export const configs = {
   lavalinkPort: Number(lavalinkPort),
   lavalinkPassword: String(lavalinkPassword),
   lavalinkSecure: Boolean(lavalinkSecure),
+  lavalinkResume: String(lavalinkResume)
 };

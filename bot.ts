@@ -22,6 +22,13 @@ nodes.push({
   port: configs.lavalinkPort,
   password: configs.lavalinkPassword,
   secure: configs.lavalinkSecure,
+  resuming: { key: configs.lavalinkResume },
+  reconnect: {
+    type: "exponential",
+    maxDelay: 15000,
+    initialDelay: 1000,
+    tries: -1 // unlimited
+  },
 });
 
 if (nodes.length == 0) throw log.error("No nodes specified");
