@@ -24,9 +24,9 @@ await updateApplicationCommands();
 // STARTS THE CONNECTION TO DISCORD
 await startBot(Bot);
 
-Bot.lavadeno.core.on("nodeConnect", (node) => console.log(`Node ${node.id} connected.`));
+Bot.lavadeno.core.on("nodeConnect", (node) => log.info(`Node ${node.id} connected.`));
 Bot.lavadeno.core.on("nodeDisconnect", (node, code, reason) =>
-  console.log(`Node ${node.id} disconnected with code ${code}`, reason)
+  log.info(`Node ${node.id} disconnected with code ${code}`, reason)
 );
-Bot.lavadeno.core.on("nodeError", (node, err) => console.error(`Node ${node.id} error`, err));
+Bot.lavadeno.core.on("nodeError", (node, err) => log.error(`Node ${node.id} error`, err));
 await Bot.lavadeno.connect();

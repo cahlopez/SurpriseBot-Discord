@@ -12,6 +12,7 @@ import {
 } from "./deps.ts";
 import { Command } from "./src/types/commands.ts";
 import { fixCacheUpdating } from "./src/utils/fixes.ts";
+import log from "./src/utils/logger.ts";
 
 const nodes = [];
 
@@ -23,7 +24,7 @@ nodes.push({
   secure: configs.lavalinkSecure,
 });
 
-if (nodes.length == 0) throw new Error("No nodes specified");
+if (nodes.length == 0) throw log.error("No nodes specified");
 
 // MAKE THE BASIC BOT OBJECT
 const baseBot = createBot({
