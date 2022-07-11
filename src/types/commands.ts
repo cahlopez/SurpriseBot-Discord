@@ -1,4 +1,4 @@
-import { BotClient } from "../../bot.ts";
+import { Bot } from "../../bot.ts";
 import { ApplicationCommandOption, ApplicationCommandTypes, Interaction } from "../../deps.ts";
 
 export interface Command {
@@ -13,5 +13,5 @@ export interface Command {
   /** The options for this command */
   options?: ApplicationCommandOption[];
   /** This will be executed when the command is run. */
-  execute: (bot: BotClient, interaction: Interaction) => unknown;
+  execute: (bot: typeof Bot, interaction: Interaction) => unknown;
 }

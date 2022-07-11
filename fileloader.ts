@@ -1,5 +1,10 @@
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/mod.ts#0";
-import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/ping.ts#0";
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/info.ts#0";
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/loop.ts#0";
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/play.ts#0";
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/skip.ts#0";
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/stop.ts#0";
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/events/interactionCreate.ts#1";
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/events/messageCreate.ts#1";
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/events/ready.ts#1";
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/ping.ts#2";
