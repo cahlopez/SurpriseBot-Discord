@@ -27,8 +27,6 @@ createCommand({
 
     const newQueue = queue == undefined;
 
-    await Bot.lavadeno.connect();
-
     if(!queue) {
         queue = Bot.lavadeno.createQueue(interaction.guildId!, interaction.channelId!, {
             songStart: (channelId, song) => {
