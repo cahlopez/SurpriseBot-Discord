@@ -11,7 +11,6 @@ import {
   GatewayIntents
 } from "./deps.ts";
 import { Command } from "./src/types/commands.ts";
-import { fixCacheUpdating } from "./src/utils/fixes.ts";
 import log from "./src/utils/logger.ts";
 
 const nodes = [];
@@ -42,7 +41,6 @@ const bot = enableLavadenoPlugin(enableCachePlugin(baseBot), {
 });
 
 // ENABLE ALL THE PLUGINS THAT WILL HELP MAKE IT EASIER TO CODE YOUR BOT
-fixCacheUpdating(bot);
 enableHelpersPlugin(bot);
 enableCacheSweepers(bot as BotWithCache);
 enablePermissionsPlugin(bot as BotWithCache);
