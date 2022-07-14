@@ -24,9 +24,9 @@ createCommand({
     const mode = interaction.data!.options![0].value as "None" | "Song" | "Queue";
     const queue = Bot.lavadeno.queues.get(interaction.guildId!);
 
-    if(!queue) return reply(Bot, interaction, "Not playing!");
+    if(!queue) return reply(Bot, interaction, { content: "Not playing!" });
 
     queue.loop = mode;
-    await reply(Bot, interaction, `Looping mode set to **${mode}**`);
+    await reply(Bot, interaction, { content: `Looping mode set to **${mode}**` });
   },
 });

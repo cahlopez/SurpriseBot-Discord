@@ -10,6 +10,6 @@ createCommand({
   execute: async (Bot, interaction) => {
     await Bot.lavadeno.queues.get(interaction.guildId!)?.disconnect().destroy()
 
-    reply(Bot, interaction, "Stopped current queue!");
+    reply(Bot, interaction, { content: "Stopped current queue!" });
   },
 });

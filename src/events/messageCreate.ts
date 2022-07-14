@@ -6,6 +6,6 @@ Bot.events.messageCreate = (_, message) => {
   addReaction(message.channelId, message.id, '👎');
 };
 
-async function addReaction(channelId: bigint, messageId: bigint, reaction: string) {
+async function addReaction(channelId: bigint, messageId: bigint, reaction: string): Promise<void> {
     await Bot.helpers.addReaction(channelId, messageId, reaction);
 }

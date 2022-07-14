@@ -10,7 +10,7 @@ Bot.events.ready = (_, payload) => {
 };
 
 // This function lets you run custom code when all your bot's shards are online.
-function botFullyReady() {
+function botFullyReady(): void {
   // DO STUFF YOU WANT HERE ONCE BOT IS FULLY ONLINE.
   log.info("[READY] Bot is fully online.");
 }

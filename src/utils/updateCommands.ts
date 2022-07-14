@@ -1,7 +1,7 @@
 import { Bot, commands } from "../../bot.ts";
 import { configs } from "../../configs.ts";
 
-export async function updateApplicationCommands() {
+export async function updateApplicationCommands(): Promise<void> {
   // const cmdNames = commands.map((val) => val.name);
 
   // if ((await Bot.helpers.getApplicationCommands()).filter((val) => cmdNames.includes(val.name)).size < cmdNames.length) {

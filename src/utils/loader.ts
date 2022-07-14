@@ -5,7 +5,7 @@ let uniqueFilePathCounter = 0;
 let paths: string[] = [];
 
 /** This function allows reading all files in a folder. Useful for loading/reloading commands, monitors etc */
-export async function importDirectory(path: string) {
+export async function importDirectory(path: string): Promise<void> {
   path = path.replaceAll("\\", "/");
   const files = Deno.readDirSync(Deno.realPathSync(path));
   const folder = path.substring(path.indexOf("/src/") + 5);
@@ -35,7 +35,7 @@ export async function importDirectory(path: string) {
 }
 
 /** Imports all everything in fileloader.ts */
-export async function fileLoader() {
+export async function fileLoader(): Promise<void> {
   await Deno.writeTextFile(
     "fileloader.ts",
     paths.join("\n").replaceAll("\\", "/"),

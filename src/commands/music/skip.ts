@@ -10,6 +10,6 @@ createCommand({
   execute: async (Bot, interaction) => {
     await Bot.lavadeno.queues.get(interaction.guildId!)?.skip();
 
-    await reply(Bot, interaction, "Skipped!")
+    await reply(Bot, interaction, { content: "Skipped!" })
   },
 });

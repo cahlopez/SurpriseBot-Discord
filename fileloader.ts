@@ -1,3 +1,4 @@
+import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/league.ts#0";
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/mod.ts#0";
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/info.ts#0";
 import "file:///C:/Users/Camer/OneDrive/Documents/Github/SurpriseBot-Discord/src/commands/music/loop.ts#0";

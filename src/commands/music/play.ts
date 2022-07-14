@@ -16,10 +16,10 @@ createCommand({
         }
     ],
   execute: async (Bot, interaction) => {
-    if(!interaction.guildId) return reply(Bot, interaction, "Call this command from a guild!");
+    if(!interaction.guildId) return reply(Bot, interaction, { content: "Call this command from a guild!" });
 
     const userVoiceChannel = Bot.guilds.get(interaction.guildId)?.voiceStates.get(interaction.user.id);
-    if (!userVoiceChannel?.channelId) return reply(Bot, interaction, "You're not currently connected to a voice channel!");
+    if (!userVoiceChannel?.channelId) return reply(Bot, interaction, { content: "You're not currently connected to a voice channel!" });
 
     const song = interaction.data!.options![0].value as string;
 
@@ -58,12 +58,12 @@ createCommand({
     }
     const tracks = await Bot.lavadeno.core.rest.loadTracks(/*`scsearch:${song}`*/ "ytsearch:" + song);
 
-    if(tracks.tracks.length == 0) return reply(Bot, interaction, "I was unable to find any songs!");
+    if(tracks.tracks.length == 0) return reply(Bot, interaction, { content: "I was unable to find any songs!" });
     if(!queue.connected) queue.connect(userVoiceChannel.channelId);
 
     queue.add(new Song(tracks.tracks[0]));
     await queue.start();
     
-    await reply(Bot, interaction, newQueue ? "Playing song" : "Song added to queue");
+    await reply(Bot, interaction, { content: newQueue ? "Playing song" : "Song added to queue" });
   },
 });

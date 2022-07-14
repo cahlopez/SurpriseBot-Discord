@@ -32,8 +32,8 @@ export function logger({
 }: {
   logLevel?: LogLevels;
   name?: string;
-} = {}) {
-  function log(level: LogLevels, ...args: any[]) {
+} = {}): any {
+  function log(level: LogLevels, ...args: any[]): void {
     if (level < logLevel) return;
 
     let color = colorFunctions.get(level);
@@ -63,27 +63,27 @@ export function logger({
     }
   }
 
-  function setLevel(level: LogLevels) {
+  function setLevel(level: LogLevels): void {
     logLevel = level;
   }
 
-  function debug(...args: any[]) {
+  function debug(...args: any[]): void {
     log(LogLevels.Debug, ...args);
   }
 
-  function info(...args: any[]) {
+  function info(...args: any[]): void {
     log(LogLevels.Info, ...args);
   }
 
-  function warn(...args: any[]) {
+  function warn(...args: any[]): void {
     log(LogLevels.Warn, ...args);
   }
 
-  function error(...args: any[]) {
+  function error(...args: any[]): void {
     log(LogLevels.Error, ...args);
   }
 
-  function fatal(...args: any[]) {
+  function fatal(...args: any[]): void {
     log(LogLevels.Fatal, ...args);
   }
 
