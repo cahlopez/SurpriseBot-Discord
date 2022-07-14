@@ -3,12 +3,13 @@ import { dotEnvConfig } from "./deps.ts";
 // Get the .env file that the user should have created, and get the token
 const env = dotEnvConfig({ export: true });
 const token = Deno.env.get("BOT_TOKEN") || env.BOT_TOKEN;
-const devGuildID = Deno.env.get("DEV_GUILD_ID") || env.DEV_GUILD_ID!
-const lavalinkHost = Deno.env.get("LLHOST") || env.LLHOST
-const lavalinkPort = Deno.env.get("LLPORT") || env.LLPPORT
-const lavalinkPassword = Deno.env.get("LLPASSWORD") || env.LLPASSWORD
-const lavalinkSecure = Deno.env.get("LLSECURE") || env.LLSECURE
-const lavalinkResume = Deno.env.get("LLRESUME") || env.LLRESUME
+const devGuildID = Deno.env.get("DEV_GUILD_ID") || env.DEV_GUILD_ID!;
+const lavalinkHost = Deno.env.get("LLHOST") || env.LLHOST;
+const lavalinkPort = Deno.env.get("LLPORT") || env.LLPPORT;
+const lavalinkPassword = Deno.env.get("LLPASSWORD") || env.LLPASSWORD;
+const lavalinkSecure = Deno.env.get("LLSECURE") || env.LLSECURE;
+const lavalinkResume = Deno.env.get("LLRESUME") || env.LLRESUME;
+const rToken = Deno.env.get("RAPI_TOKEN") || env.RAPI_TOKEN;
 
 export interface Config {
   token: string;
@@ -17,7 +18,8 @@ export interface Config {
   lavalinkPort: number;
   lavalinkPassword: string;
   lavalinkSecure: boolean;
-  lavalinkResume: string
+  lavalinkResume: string;
+  rToken: string;
 }
 
 export const configs = {
@@ -32,5 +34,6 @@ export const configs = {
   lavalinkPort: Number(lavalinkPort),
   lavalinkPassword: String(lavalinkPassword),
   lavalinkSecure: Boolean(lavalinkSecure),
-  lavalinkResume: String(lavalinkResume)
+  lavalinkResume: String(lavalinkResume),
+  rToken: String(rToken),
 };

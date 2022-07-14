@@ -113,7 +113,7 @@ async function APIFetch(url: string): Promise<Record<string, unknown>> {
     const response = await fetch(url, {
         method: "GET",
         headers: {
-            "X-Riot-Token": "RGAPI-5bd1b624-1b3d-4e5e-901d-aa4f59165056",
+            "X-Riot-Token": configs.RAPI_TOKEN,
         }
     });
 
