@@ -1,6 +1,7 @@
 import { ApplicationCommandOptionTypes, ApplicationCommandTypes, Embed, DiscordEmbedField, Emoji, Collection} from "../../deps.ts";
-import { reply } from "../utils/reply.ts"
+import { reply } from "../utils/reply.ts";
 import { createCommand } from "./mod.ts";
+import { configs } from "../../configs.ts";
 
 const rankedEmojis: Record<string, bigint> = {
   "IRON": 996645679873134593n,
