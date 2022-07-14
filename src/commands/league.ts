@@ -28,7 +28,6 @@ createCommand({
     }
   ],
   execute: async (Bot, interaction) => {
-
     const sumData = await APIFetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${interaction.data!.options![0].value}`);
 
     if(sumData.status) return reply(Bot, interaction, { content: "I was unable to find a Summoner by that name!" });
@@ -114,7 +113,7 @@ async function APIFetch(url: string): Promise<Record<string, unknown>> {
     const response = await fetch(url, {
         method: "GET",
         headers: {
-            "X-Riot-Token": configs.RAPI_TOKEN,
+            "X-Riot-Token": configs.rToken,
         }
     });
 
