@@ -99,7 +99,7 @@ createCommand({
           recChamps.push(recMatchData[i][0]);
 
           await doesEmojiExist(Bot, recChamps[i], recChampIcons);
-          recChampsField.value += `<:${recChampIcons[i].name}:${recChampIcons[i].id}> ${recChamps[0]} - **${recMatchData[i][2]}/${recMatchData[i][3]}/${recMatchData[i][4]} (${recMatchData[i][1]})** \n`
+          recChampsField.value += `<:${recChampIcons[i].name}:${recChampIcons[i].id}> ${recChamps[i]} - **${recMatchData[i][2]}/${recMatchData[i][3]}/${recMatchData[i][4]} (${recMatchData[i][1]})** \n`
         }
       }
 
